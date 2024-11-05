@@ -1,0 +1,82 @@
+{% load static %}
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+      
+
+
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="{% static 'dist/img/logo.png' %}" class="img-circle elevation-2 ml-5" alt="User Image" style="max-width:100%;">
+          </div>
+          <div class="info">
+            <a href="{% url 'student_profile' %}" class="d-block">{{ user.first_name }} {{ user.last_name }}</a>
+          </div>
+        </div>
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+            
+            <li class="nav-item">
+              {% url 'student_home' as student_home %}
+              <a href="{{ student_home }}" class="nav-link {% if request.path == student_home %} active {% endif %}">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Home
+                  {% comment %} <span class="right badge badge-danger">New</span> {% endcomment %}
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'view_notice' as view_notice %}
+
+              <a href="{{ view_notice }}" class="nav-link {% if request.path == view_notice %} active {% endif %} ">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  View Notice
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'view_event' as view_event %}
+              <a href="{{ view_event }}" class="nav-link {% if request.path == view_event %} active {% endif %} ">
+                <i class="nav-icon fas fa-graduation-cap"></i>
+                <p>
+                  View Event 
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              {% url 'view_club' as view_club %}
+
+              <a href="{{ view_club }}" class="nav-link {% if request.path == view_club %} active {% endif %} ">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  View Club
+                </p>
+              </a>
+            </li>
+
+
+            <li class="nav-item">
+              {% url 'student_feedback' as student_feedback %}
+              <a href="{{ student_feedback }}" class="nav-link {% if request.path == student_feedback %} active {% endif %}">
+                <i class="nav-icon fas fa-comments"></i>
+                <p>
+                  Send Feedback
+                  {% comment %} <span class="right badge badge-danger">New</span> {% endcomment %}
+                </p>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
